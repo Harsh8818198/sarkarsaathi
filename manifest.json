@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "SarkarSaathi - Government Website Assistant",
+  "version": "1.0.0",
+  "description": "Your personal guide for any government website, in any language",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://passportindia.gov.in/*",
+    "https://www.incometax.gov.in/*",
+    "https://www.onlineservices.nsdl.com/*",
+    "https://*.gov.in/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*.gov.in/*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
